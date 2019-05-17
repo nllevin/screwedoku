@@ -51,13 +51,16 @@ class SudokuGame
   end
 
   def run
-    until solved?
+    play_turn until solved?
+    borad.render
+    puts "Congratulations, you win!"
+  end
+
+  def play_turn
       board.render
       pos = get_pos
       val = get_val
       board[pos] = val
-    end
-    puts "Congratulations, you win!"
   end
 
   def solved?
