@@ -13,9 +13,9 @@ class SudokuGame
     @board = board
   end
 
-  # def method_missing(method_name, *args)
-  #   if method_name =~ /val/
-  #     Integer(1)
+  def parse_val(string)
+    Integer(string)
+  end
 
   def parse_pos(string)    
       string.split(",").map { |char| Integer(char) }
@@ -54,7 +54,7 @@ class SudokuGame
     board.render
     pos = get_pos
     val = get_val
-    board[*pos] = val
+    board[pos] = val
   end
 
   def run
